@@ -1,0 +1,108 @@
+﻿{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "azure_aipocs_tenant_id": {
+      "type": "String"
+    },
+    "azure_aipocs_key_vault_name": {
+      "defaultValue": "azure_aipocs_key_vault",
+      "type": "String"
+    },
+    "azure_aipocs_aiservice_name": {
+      "defaultValue": "azure-aipocs-aiservice",
+      "type": "String"
+    },
+    "azure_aipocs_appconfig_name": {
+      "defaultValue": "azure_aipocs_appconfig",
+      "type": "String"
+    },
+    "azure_aipocs_location": {
+      "type": "String",
+      "metadata": {
+        "description": "Location where resources will be deployed"
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.AppConfiguration/configurationStores",
+      "apiVersion": "2023-03-01",
+      "name": "[parameters('azure_aipocs_appconfig_name')]",
+      "location": "[parameters('azure_aipocs_location')]",
+      "sku": {
+        "name": "free"
+      },
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "encryption": {},
+        "disableLocalAuth": false,
+        "softDeleteRetentionInDays": 0,
+        "enablePurgeProtection": false
+      }
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "apiVersion": "2023-05-01",
+      "name": "[parameters('azure_aipocs_aiservice_name')]",
+      "location": "[parameters('azure_aipocs_location')]",
+      "sku": {
+        "name": "S0"
+      },
+      "kind": "CognitiveServices",
+      "identity": {
+        "type": "None"
+      },
+      "properties": {
+        "apiProperties": {},
+        "customSubDomainName": "[parameters('azure_aipocs_aiservice_name')]",
+        "networkAcls": {
+          "defaultAction": "Allow",
+          "virtualNetworkRules": [],
+          "ipRules": []
+        },
+        "publicNetworkAccess": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults",
+      "apiVersion": "2023-02-01",
+      "name": "[parameters('azure_aipocs_key_vault_name')]",
+      "location": "[parameters('azure_aipocs_location')]",
+      "properties": {
+        "sku": {
+          "family": "A",
+          "name": "Standard"
+        },
+        "tenantId": "[parameters('azure_aipocs_tenant_id')]",
+        "accessPolicies": [],
+        "enabledForDeployment": false,
+        "enabledForDiskEncryption": false,
+        "enabledForTemplateDeployment": false,
+        "enableSoftDelete": true,
+        "softDeleteRetentionInDays": 90,
+        "enableRbacAuthorization": true,
+        "vaultUri": "[concat('https://', parameters('azure_aipocs_key_vault_name'), '.vault.azure.net/')]",
+        "provisioningState": "Succeeded",
+        "publicNetworkAccess": "Enabled"
+      }
+    },
+    {
+      "type": "Microsoft.KeyVault/vaults/secrets",
+      "apiVersion": "2023-02-01",
+      "name": "[concat(parameters('azure_aipocs_key_vault_name'), '/CognitiveServiceApiKey')]",
+      "location": "[parameters('azure_aipocs_location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.KeyVault/vaults', parameters('azure_aipocs_key_vault_name'))]"
+      ],
+      "properties": {
+        "attributes": {
+          "enabled": true
+        }
+      }
+    }
+  ]
+}

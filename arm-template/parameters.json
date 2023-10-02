@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+		"azure_aipocs_tenant_id": {
+            "value": null
+        },
+        "azure_aipocs_key_vault_name": {
+            "value": null
+        },
+        "azure_aipocs_aiservice_name": {
+            "value": null
+        },
+        "azure_aipocs_appconfig_name": {
+            "value": null
+        },
+		"azure_aipocs_location": {
+            "value": null
+        }
+    }
+}
