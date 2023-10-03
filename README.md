@@ -47,6 +47,23 @@ Follow these steps to set up and clone the project in your local environment:
     }
     ```
 
-## Azure Translator AI Service
+## Azure Translator AI Service Examples
 
-You will find specific examples of Azure's Translator AI service within this project. This service allows efficient translation of text and documents from one language to another.
+** These examples were built following the API REST spec for version 3.0. Please see https://learn.microsoft.com/en-us/azure/ai-services/translator/reference/v3-0-reference **
+
+#### This project contains examples of How-To:
+- List supported languages by the Microsoft AI Translator Service
+- Translate text from/to multiple languages supporting transliteration
+- Detect the language
+- Transliterate from/to different scripts
+
+** For a complete list of the applications please visit the Microsoft Translator Documentation (https://learn.microsoft.com/en-us/azure/ai-services/translator/) **
+
+#### This project contains examples of How-To:
+- Invoke the Microsoft Translator REST API v3.0 to deserialize the responses to string, so you can use this code to implement your own deserialization model, or take advantage of JSON objects. See the class: AzureAI.Poc.Services/Translator/RestClient/TranslatorRestClient.cs
+- Invoke the Microsoft Translator REST API v3.0 to deserialize the responses using strong types defined in the project. You can use this approach to create more complex solutions where you need a full typed response for the translation result. See the class: AzureAI.Poc.Services/Translator/TranslatorService.cs
+
+### References
+- Microsoft Translator documentation: https://learn.microsoft.com/en-us/azure/ai-services/translator/
+- Microsoft Learn Training for AI Translation services: https://learn.microsoft.com/en-us/training/modules/translate-text-with-translator-service/
+
