@@ -41,6 +41,12 @@ Follow these steps to set up and clone the project in your local environment:
 9. Ensure that the Azure RBAC is enabled in the app configuration resource to use a system-assigned managed identity to read the Azure Key Vault.
 10. Configure the app config connection string in the xUnit Integration Test project.
 
+    ```
+    {
+      "ConfigConnectionString": "Endpoint={your-appconfig-endpoint};Id={your-appconfig-id};Secret={your-appconfig-secret}"
+    }
+    ```
+
 ## Azure Translator AI Service
 
-You will find specific examples for Azure's Translator AI service within this project. This service allows efficient translation of text and documents from one language to another.
+You will find specific examples of Azure's Translator AI service within this project. This service allows efficient translation of text and documents from one language to another.
