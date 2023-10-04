@@ -1,4 +1,4 @@
-﻿namespace AzureAI.Poc.Services.Api.Translator.RestClient;
+﻿namespace AzureAI.Poc.Services.Api.Translator.Rest;
 
 public sealed class TranslatorApiOptions
 {

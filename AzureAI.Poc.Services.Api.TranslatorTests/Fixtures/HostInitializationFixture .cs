@@ -3,11 +3,12 @@ using AzureAI.Poc.Services.Api.Common;
 using AzureAI.Poc.Services.Api.Common.Contracts;
 using AzureAI.Poc.Services.Api.Translator;
 using AzureAI.Poc.Services.Api.Translator.Contracts;
-using AzureAI.Poc.Services.Api.Translator.RestClient;
+using AzureAI.Poc.Services.Api.Translator.Rest;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 
 namespace AzureAI.Poc.Services.Api.Tests.Fixtures;
 
@@ -32,7 +33,11 @@ public sealed class HostInitializationFixture : IDisposable
                         options.SetCredential(new DefaultAzureCredential())
                     );
                 });
-            })            
+            })
+            .ConfigureLogging((hostContext, loggingBuilder) =>
+            {
+                loggingBuilder.AddSerilog(dispose: true);
+            })
             .ConfigureServices((hostContext, services) =>
             {                
                 services.AddOptions<AiServicesOptions>().BindConfiguration("AiServices");

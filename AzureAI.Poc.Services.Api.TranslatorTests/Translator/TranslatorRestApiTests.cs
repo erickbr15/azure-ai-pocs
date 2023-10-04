@@ -9,23 +9,26 @@ public class TranslatorRestApiTests : IClassFixture<HostInitializationFixture>
 {
     private readonly HostInitializationFixture _hostInitializer;
     private readonly ITranslatorRestClient _translatorRestClient;
-    private readonly Guid _testingSessionId;
 
     public TranslatorRestApiTests(HostInitializationFixture hostInitializer)
     {
         _hostInitializer = hostInitializer ?? throw new ArgumentNullException(nameof(hostInitializer));
         _translatorRestClient = _hostInitializer.Host.Services.GetService<ITranslatorRestClient>()!;
-        _testingSessionId = Guid.NewGuid();
     }
 
+    /// <summary>
+    ///     List the AI Azure Translator available languages
+    /// </summary>
     [Fact]
     public async Task Translator_Get_Languages()
     {
         var response = await _translatorRestClient.GetLanguagesAsync(CancellationToken.None);
-        TraceFileWriterHelper.Write(_testingSessionId, nameof(Translator_Get_Languages), response);
         Assert.NotNull(response);
     }
 
+    /// <summary>
+    ///     Translate a single input
+    /// </summary>
     [Fact]
     public async Task Translator_Translate_Single_Input()
     {
@@ -40,12 +43,12 @@ public class TranslatorRestApiTests : IClassFixture<HostInitializationFixture>
         request.Text.Add("Hello!, what's your name?");
         
         var response = await _translatorRestClient.TranslateAsync(request, CancellationToken.None);
-
-        TraceFileWriterHelper.Write(_testingSessionId, nameof(Translator_Translate_Single_Input), response);
-
         Assert.NotNull(response);
     }
 
+    /// <summary>
+    ///     Translate a single input with language autodetection
+    /// </summary>
     [Fact]
     public async Task Translator_Translate_Single_Input_With_Language_Autodetection()
     {
@@ -57,14 +60,14 @@ public class TranslatorRestApiTests : IClassFixture<HostInitializationFixture>
         };
 
         request.Text.Add("Hello!, what's your name?");
-
         var response = await _translatorRestClient.TranslateAsync(request, CancellationToken.None);
-
-        TraceFileWriterHelper.Write(_testingSessionId, nameof(Translator_Translate_Single_Input_With_Language_Autodetection), response);
 
         Assert.NotNull(response);
     }
 
+    /// <summary>
+    ///     Translate a single input with transliteration
+    /// </summary>
     [Fact]
     public async Task Translator_Translate_With_Transliteration()
     {
@@ -77,14 +80,14 @@ public class TranslatorRestApiTests : IClassFixture<HostInitializationFixture>
         };
 
         request.Text.Add("Hello!, what's your name?");
-
         var response = await _translatorRestClient.TranslateAsync(request, CancellationToken.None);
-
-        TraceFileWriterHelper.Write(_testingSessionId, nameof(Translator_Translate_With_Transliteration), response);
 
         Assert.NotNull(response);
     }
 
+    /// <summary>
+    ///     Translate multiple pieces of text
+    /// </summary>
     [Fact]
     public async Task Translator_Translate_Multiple_Pieces_Of_Text()
     {
@@ -101,11 +104,12 @@ public class TranslatorRestApiTests : IClassFixture<HostInitializationFixture>
 
         var response = await _translatorRestClient.TranslateAsync(request, CancellationToken.None);
 
-        TraceFileWriterHelper.Write(_testingSessionId, nameof(Translator_Translate_Multiple_Pieces_Of_Text), response);
-
         Assert.NotNull(response);
     }
 
+    /// <summary>
+    ///     Translate to multiple languages
+    /// </summary>
     [Fact]
     public async Task Translator_Translate_To_Multiple_Languages()
     {
@@ -122,11 +126,12 @@ public class TranslatorRestApiTests : IClassFixture<HostInitializationFixture>
 
         var response = await _translatorRestClient.TranslateAsync(request, CancellationToken.None);
 
-        TraceFileWriterHelper.Write(_testingSessionId, nameof(Translator_Translate_To_Multiple_Languages), response);
-
         Assert.NotNull(response);
     }
 
+    /// <summary>
+    ///     Translate with markup and decide what is translated
+    /// </summary>
     [Fact]
     public async Task Translator_Translate_With_Markup_And_Decide_WhatIs_Translated()
     {
@@ -142,8 +147,6 @@ public class TranslatorRestApiTests : IClassFixture<HostInitializationFixture>
         request.Text.Add("<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>");
 
         var response = await _translatorRestClient.TranslateAsync(request, CancellationToken.None);
-
-        TraceFileWriterHelper.Write(_testingSessionId, nameof(Translator_Translate_With_Markup_And_Decide_WhatIs_Translated), response);
 
         Assert.NotNull(response);
     }

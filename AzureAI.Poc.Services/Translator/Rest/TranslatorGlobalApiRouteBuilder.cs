@@ -3,7 +3,7 @@ using AzureAI.Poc.Services.Api.Translator.Model;
 using Microsoft.Extensions.Options;
 using System.Text;
 
-namespace AzureAI.Poc.Services.Api.Translator.RestClient;
+namespace AzureAI.Poc.Services.Api.Translator.Rest;
 
 public class TranslatorGlobalApiRouteBuilder : ITranslatorApiRouteBuilder
 {

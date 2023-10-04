@@ -6,11 +6,11 @@ namespace AzureAI.Poc.Services.Api.Translator;
 
 public class TranslatorService : ITranslatorService
 {
-    private readonly ITranslatorRestClient _translatorRestClient;
+    private readonly ITranslatorRestClient _translatorRestClient;    
 
     public TranslatorService(ITranslatorRestClient translatorRestClient)
     {        
-        _translatorRestClient = translatorRestClient ?? throw new ArgumentNullException(nameof(translatorRestClient));
+        _translatorRestClient = translatorRestClient ?? throw new ArgumentNullException(nameof(translatorRestClient));        
     }
 
     public async Task<string> GetLanguagesAsync(CancellationToken cancellationToken = default)

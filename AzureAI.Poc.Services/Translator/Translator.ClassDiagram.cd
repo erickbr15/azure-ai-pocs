@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AzureAI.Poc.Services.Api.Translator.RestClient.TranslatorGlobalApiRouteBuilder">
+    <Position X="2.5" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAIAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Translator\RestClient\TranslatorGlobalApiRouteBuilder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AzureAI.Poc.Services.Api.Translator.RestClient.TranslatorRestClient">
+    <Position X="5.25" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAggAAgACAAAAAAAAAAAAABAAAAAQAIAAgAAQ=</HashCode>
+      <FileName>Translator\RestClient\TranslatorRestClient.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AzureAI.Poc.Services.Api.Translator.TranslatorService">
+    <Position X="8" Y="2.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Translator\TranslatorService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AzureAI.Poc.Services.Api.Common.HttpProxy">
+    <Position X="5.25" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Common\HttpProxy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
