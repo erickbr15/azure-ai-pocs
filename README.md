@@ -10,11 +10,12 @@ The "AI Azure POCs" project aims to provide C# implementation examples for utili
 
 ## Prerequisites
 Before you begin, it is desirable that you meet the following requirements:
-- You have a Microsoft Azure subscription
-- You have a Visual Studio (Community, Professional, or Enterprise) Version 17.6.5
+- You will need a Microsoft Azure subscription
+- You will need Visual Studio (Community, Professional, or Enterprise) Version 17.6.5 
 
 ## Project components view
-![image](https://github.com/erickbr15/azure-ai-pocs/assets/72543531/9cfbf9a8-724a-4841-a8e3-66249d07b0b0)
+![image](https://github.com/erickbr15/azure-ai-pocs/assets/72543531/377eaf63-6e96-4fc1-9b0e-0f0e48cff5ef)
+
 
 ## Project Setup
 Follow these steps to set up and clone the project in your local environment:
