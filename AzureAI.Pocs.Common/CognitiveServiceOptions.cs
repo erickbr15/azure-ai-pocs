@@ -1,4 +1,4 @@
-﻿namespace AzureAI.Poc.Services.Api.Common;
+﻿namespace AzureAI.Poc.Services.Common;
 
 public class CognitiveServiceOptions
 {

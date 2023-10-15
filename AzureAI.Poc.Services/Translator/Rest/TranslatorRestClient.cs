@@ -1,7 +1,7 @@
-﻿using AzureAI.Poc.Services.Api.Common;
-using AzureAI.Poc.Services.Api.Common.Contracts;
+﻿using AzureAI.Poc.Services.Api.Common.Contracts;
 using AzureAI.Poc.Services.Api.Translator.Contracts;
 using AzureAI.Poc.Services.Api.Translator.Model;
+using AzureAI.Poc.Services.Common;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
