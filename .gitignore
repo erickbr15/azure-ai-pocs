@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-/AzureAI.Poc.Services.Api.TranslatorTests/appsettings.json
+*.local.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
